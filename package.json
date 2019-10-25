@@ -1,0 +1,22 @@
+{
+  "name": "quiz-millioners-node-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KierepkaE/quiz-millioners-node-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KierepkaE/quiz-millioners-node-express/issues"
+  },
+  "homepage": "https://github.com/KierepkaE/quiz-millioners-node-express#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
