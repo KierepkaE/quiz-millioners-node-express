@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+app.use(express.static('public'));
 
 app.listen(3000, () => console.log('listening on port 3000'));
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 let goodAnswers = 0;
 let callToAFriendUsed = false;
@@ -35,7 +39,7 @@ app.get('/question', (req, res) => {
     const nextQuestion = questions[goodAnswers];
     const { question, answers } = nextQuestion;
     res.json({
-      question, answers
+      question, answers,
     })
   }
 })
