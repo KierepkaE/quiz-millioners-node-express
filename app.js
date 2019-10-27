@@ -27,5 +27,15 @@ const questions = [
 ]
 
 app.get('/question', (req, res) => {
-
+  if (goodAnswers === questions.length) {
+    res.json({
+      winner: true
+    })
+  } else {
+    const nextQuestion = questions[goodAnswers];
+    const { question, answers } = nextQuestion;
+    res.json({
+      question, answers
+    })
+  }
 })
