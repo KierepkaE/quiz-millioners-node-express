@@ -40,4 +40,5 @@ for (const button of buttons) {
 const goodAnswersSpan = document.getElementById('correct-answers')
 function handleAnswer(data) {
   goodAnswersSpan.innerText = data.goodAnswers;
+  showNextQuestion();
 }
