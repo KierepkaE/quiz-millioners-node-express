@@ -63,6 +63,21 @@ function gameRoutes(app) {
       goodAnswers
     })
   });
+
+
+  app.get('/tip/friend', (req, res) => {
+    if (callToAFriendUsed) {
+      return res.json({
+        text: "Already used."
+      })
+    }
+    const isFriendCorrect = Math.random() < 0.5;
+    const question = questions[goodAnswers];
+    res.json({
+      text: isFriendCorrect ? `I think correct answer is ${question.answers[question.correctAnswer]}` : `I have no idea. Sorry :(`
+    })
+    callToAFriendUsed = true;
+  })
 }
 
 

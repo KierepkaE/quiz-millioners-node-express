@@ -37,7 +37,7 @@ function sendAnswer(answerIndex) {
     .then(data => handleAnswer(data))
 }
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('answer');
 
 for (const button of buttons) {
   button.addEventListener('click', (event) => {
@@ -50,4 +50,22 @@ const goodAnswersSpan = document.getElementById('correct-answers')
 function handleAnswer(data) {
   goodAnswersSpan.innerText = data.goodAnswers;
   showNextQuestion();
+}
+
+
+function callToAFriend() {
+  fetch('/tip/friend', { method: 'GET' })
+    .then(response => response.json())
+    .then(data => handleFriendAnswer(data))
+}
+
+const callFriend = document.getElementById('call-friend');
+const tip = document.getElementById('tip');
+
+callFriend.addEventListener('click', () => {
+  callToAFriend();
+})
+
+function handleFriendAnswer(data) {
+  tip.innerText = data.text;
 }
