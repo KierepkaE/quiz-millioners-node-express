@@ -13,19 +13,22 @@
     <div class="container">
         <h1 class="text-justify card-title">Quiz</h1>
         <h2 class="card-subtitle text-justify">correct answers: <span class="badge badge-secondary" id="correct-answers">0</span></h2>
+        <h2 id="result"></h2>
         <br>
         <br>
         <br>
         <br>
-        <div id="question"></div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button data-answer='0' class="answer btn btn-primary" id='answer1'></button>
-        <button data-answer='1' class="answer btn btn-primary" id='answer2'></button>
-        <button data-answer='2' class="answer btn btn-primary" id='answer3'></button>
-        <button data-answer='3' class="answer btn btn-primary" id='answer4'></button>
+        <div id="game-board">
+            <div id="question"></div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button data-answer='0' class="answer btn btn-primary" id='answer1'></button>
+            <button data-answer='1' class="answer btn btn-primary" id='answer2'></button>
+            <button data-answer='2' class="answer btn btn-primary" id='answer3'></button>
+            <button data-answer='3' class="answer btn btn-primary" id='answer4'></button>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

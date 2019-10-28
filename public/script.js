@@ -1,9 +1,14 @@
 const question = document.getElementById('question');
+const gameBoard = document.getElementById('game-board');
+const resultLine = document.getElementById('result');
+
 
 
 function fillQuestionElements(data) {
-  console.log(question.innerHTML)
-  console.log(data.question)
+  if (data.winner === true) {
+    gameBoard.style.display = 'none';
+    resultLine.innerText = 'Congratulations! You are the WINNER!!'
+  }
   question.innerHTML = data.question;
   for (const i in data.answers) {
     const answerElement = document.getElementById(`answer${Number(i) + 1}`);
