@@ -2,6 +2,7 @@ const question = document.getElementById('question');
 const gameBoard = document.getElementById('game-board');
 const resultLine = document.getElementById('result');
 const callFriend = document.getElementById('call-friend');
+const fiftyFiftyDiv = document.getElementById('half-on-half');
 const tip = document.getElementById('tip');
 
 
@@ -71,4 +72,30 @@ callFriend.addEventListener('click', () => {
 
 function handleFriendAnswer(data) {
   tip.innerText = data.text;
+}
+
+
+
+function fiftyFifty() {
+  fetch('/tip/half', { method: 'GET' })
+    .then(response => response.json())
+    .then(data => handleFiftyFiftyAnswer(data))
+}
+
+
+fiftyFiftyDiv.addEventListener('click', () => {
+  fiftyFifty();
+})
+
+function handleFiftyFiftyAnswer(data) {
+  if (typeof data.text === 'string') {
+    tipDiv.innerText = data.text
+  } else {
+    buttons.forEach(button => {
+      if (data.removeAnswers.indexOf(button.innerText) > -1) {
+        button.innerText = '';
+      }
+    })
+  }
+
 }

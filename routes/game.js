@@ -78,6 +78,22 @@ function gameRoutes(app) {
     })
     callToAFriendUsed = true;
   })
+
+
+  app.get('/tip/half', (req, res) => {
+    if (reducedToHalfUsed) {
+      return res.json({
+        text: "Already used."
+      })
+    }
+    const question = questions[goodAnswers];
+    const answersCopy = question.answers.filter((string, index) => (index !== question.correctAnswer));
+    answersCopy.splice(~~(Math.random * answersCopy.length), 1);
+    res.json({
+      removeAnswers: answersCopy
+    })
+    reducedToHalfUsed = true;
+  })
 }
 
 
