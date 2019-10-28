@@ -1,6 +1,9 @@
 const question = document.getElementById('question');
 const gameBoard = document.getElementById('game-board');
 const resultLine = document.getElementById('result');
+const callFriend = document.getElementById('call-friend');
+const tip = document.getElementById('tip');
+
 
 
 
@@ -37,10 +40,12 @@ function sendAnswer(answerIndex) {
     .then(data => handleAnswer(data))
 }
 
-const buttons = document.querySelectorAll('answer');
+
+const buttons = document.querySelectorAll('button');
 
 for (const button of buttons) {
   button.addEventListener('click', (event) => {
+    console.log('click click')
     const answerIndex = event.target.dataset.answer;
     sendAnswer(answerIndex);
   })
@@ -59,8 +64,6 @@ function callToAFriend() {
     .then(data => handleFriendAnswer(data))
 }
 
-const callFriend = document.getElementById('call-friend');
-const tip = document.getElementById('tip');
 
 callFriend.addEventListener('click', () => {
   callToAFriend();
