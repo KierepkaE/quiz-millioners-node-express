@@ -25,7 +25,7 @@ showNextQuestion();
 function sendAnswer(answerIndex) {
   fetch(`/answer/${answerIndex}`, { method: 'POST' })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => handleAnswer(data))
 }
 
 const buttons = document.querySelectorAll('button');
@@ -35,4 +35,9 @@ for (const button of buttons) {
     const answerIndex = event.target.dataset.answer;
     sendAnswer(answerIndex);
   })
+}
+
+const goodAnswersSpan = document.getElementById('correct-answers')
+function handleAnswer(data) {
+  goodAnswersSpan.innerText = data.goodAnswers;
 }
