@@ -9,6 +9,10 @@ function fillQuestionElements(data) {
     gameBoard.style.display = 'none';
     resultLine.innerText = 'Congratulations! You are the WINNER!!'
   }
+  if (data.lose === true) {
+    gameBoard.style.display = 'none';
+    resultLine.innerText = 'Upss... try again!!'
+  }
   question.innerHTML = data.question;
   for (const i in data.answers) {
     const answerElement = document.getElementById(`answer${Number(i) + 1}`);
