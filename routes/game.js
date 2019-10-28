@@ -41,7 +41,7 @@ function gameRoutes(app) {
     const { index } = req.params;
     const question = questions[goodAnswers];
     res.json({
-      correct: question.correctAnswer === Number(index) ? true : false
+      correct: question.correctAnswer === Number(index)
     });
 
   });
