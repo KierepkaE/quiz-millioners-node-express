@@ -36,3 +36,6 @@ function gameRoutes(app) {
     }
   })
 }
+
+
+module.exports = gameRoutes;
