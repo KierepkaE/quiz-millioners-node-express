@@ -35,6 +35,16 @@ function gameRoutes(app) {
       })
     }
   })
+
+
+  app.post('/answer/:index', (req, res) => {
+    const { index } = req.params;
+    const question = questions[goodAnswers];
+    res.json({
+      correct: question.correctAnswer === Number(index) ? true : false
+    });
+
+  });
 }
 
 
