@@ -4,9 +4,7 @@ const resultLine = document.getElementById('result');
 const callFriend = document.getElementById('call-friend');
 const fiftyFiftyDiv = document.getElementById('half-on-half');
 const tip = document.getElementById('tip');
-
-
-
+const goodAnswersSpan = document.getElementById('correct-answers');
 
 function fillQuestionElements(data) {
   if (data.winner === true) {
@@ -41,7 +39,6 @@ function sendAnswer(answerIndex) {
     .then(data => handleAnswer(data))
 }
 
-
 const buttons = document.querySelectorAll('button');
 
 for (const button of buttons) {
@@ -52,7 +49,6 @@ for (const button of buttons) {
   })
 }
 
-const goodAnswersSpan = document.getElementById('correct-answers')
 function handleAnswer(data) {
   goodAnswersSpan.innerText = data.goodAnswers;
   showNextQuestion();
@@ -62,7 +58,7 @@ function handleAnswer(data) {
 function callToAFriend() {
   fetch('/tip/friend', { method: 'GET' })
     .then(response => response.json())
-    .then(data => handleFriendAnswer(data))
+    .then(data => handleFriendAnswer(data));
 }
 
 
@@ -74,14 +70,11 @@ function handleFriendAnswer(data) {
   tip.innerText = data.text;
 }
 
-
-
 function fiftyFifty() {
   fetch('/tip/half', { method: 'GET' })
     .then(response => response.json())
     .then(data => handleFiftyFiftyAnswer(data))
 }
-
 
 fiftyFiftyDiv.addEventListener('click', () => {
   fiftyFifty();
@@ -89,13 +82,12 @@ fiftyFiftyDiv.addEventListener('click', () => {
 
 function handleFiftyFiftyAnswer(data) {
   if (typeof data.text === 'string') {
-    tipDiv.innerText = data.text
+    tipDiv.innerText = data.text;
   } else {
     buttons.forEach(button => {
       if (data.removeAnswers.indexOf(button.innerText) > -1) {
         button.innerText = '';
-      }
-    })
-  }
-
-}
+      };
+    });
+  };
+};
