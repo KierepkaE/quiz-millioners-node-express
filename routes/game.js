@@ -101,7 +101,12 @@ function gameRoutes(app) {
       const change = Math.floor(Math.random() * 20 - 10);
       chart[i] += change;
       chart[i - 1] -= change;
-    }
+    };
+
+    const question = questions[goodAnswers];
+    const { correctAnswer } = question;
+    [chart[3], chart[correctAnswer]] = [chart[correctAnswer], chart[3]];
+
     res.json({
       chart
     })
