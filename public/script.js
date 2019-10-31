@@ -6,6 +6,7 @@ const fiftyFiftyDiv = document.getElementById('half-on-half');
 const tip = document.getElementById('tip');
 const goodAnswersSpan = document.getElementById('correct-answers');
 const askAudienceDiv = document.getElementById('ask-audience');
+const tipDiv = document.getElementById('tip');
 
 function fillQuestionElements(data) {
   if (data.winner === true) {
@@ -93,17 +94,6 @@ function handleFiftyFiftyAnswer(data) {
   };
 };
 
-
-
-
-
-
-
-
-
-
-
-
 function askAudience() {
   fetch('/tip/audience', { method: 'GET' })
     .then(response => response.json())
@@ -116,10 +106,10 @@ askAudienceDiv.addEventListener('click', () => {
 
 function handleAskAudience(data) {
   if (typeof data.text === 'string') {
-    askAudienceDiv.innerText = data.text;
+    tipDiv.innerText = data.text;
   } else {
     data.chart.forEach((percent, index) => {
-      buttons[index].innerText = `${buttons[index].innerText}: ${percent}%`;
+      buttons[index].innerText = `${buttons[index].innerText}:   ${percent}%`;
     })
   };
 };

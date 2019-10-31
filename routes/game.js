@@ -2,7 +2,7 @@ function gameRoutes(app) {
   let goodAnswers = 0;
   let isGameOver = false;
   let callToAFriendUsed = false;
-  let askTheCrowdUsed = false;
+  let askAudienceUsed = false;
   let reducedToHalfUsed = false;
 
   const questions = [
@@ -96,6 +96,14 @@ function gameRoutes(app) {
   })
 
   app.get('/tip/audience', (req, res) => {
+
+    if (askAudienceUsed) {
+      return res.json({
+        text: "Already used."
+      })
+    }
+    askAudienceUsed = true;
+
     const chart = [10, 20, 30, 40];
     for (let i = chart.length - 1; i > 0; i--) {
       const change = Math.floor(Math.random() * 20 - 10);
