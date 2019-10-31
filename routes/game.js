@@ -97,6 +97,11 @@ function gameRoutes(app) {
 
   app.get('/tip/audience', (req, res) => {
     const chart = [10, 20, 30, 40];
+    for (let i = chart.length - 1; i > 0; i--) {
+      const change = Math.floor(Math.random() * 20 - 10);
+      chart[i] + change;
+      chart[i - 1] -= change;
+    }
     res.json({
       chart
     })
