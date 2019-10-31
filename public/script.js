@@ -115,5 +115,11 @@ askAudienceDiv.addEventListener('click', () => {
 })
 
 function handleAskAudience(data) {
-  console.log(data);
+  if (typeof data.text === 'string') {
+    askAudienceDiv.innerText = data.text;
+  } else {
+    data.chart.forEach((percent, index) => {
+      buttons[index].innerText = `${buttons[index].innerText}: ${percent}%`;
+    })
+  };
 };
