@@ -94,6 +94,14 @@ function gameRoutes(app) {
     })
     reducedToHalfUsed = true;
   })
+
+  app.get('/tip/audience', (req, res) => {
+    const chart = [10, 20, 30, 40];
+    res.json({
+      chart
+    })
+
+  })
 }
 
 

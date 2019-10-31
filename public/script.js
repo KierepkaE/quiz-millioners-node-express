@@ -5,6 +5,7 @@ const callFriend = document.getElementById('call-friend');
 const fiftyFiftyDiv = document.getElementById('half-on-half');
 const tip = document.getElementById('tip');
 const goodAnswersSpan = document.getElementById('correct-answers');
+const askAudienceDiv = document.getElementById('ask-audience');
 
 function fillQuestionElements(data) {
   if (data.winner === true) {
@@ -90,4 +91,29 @@ function handleFiftyFiftyAnswer(data) {
       };
     });
   };
+};
+
+
+
+
+
+
+
+
+
+
+
+
+function askAudience() {
+  fetch('/tip/audience', { method: 'GET' })
+    .then(response => response.json())
+    .then(data => handleAskAudience(data))
+}
+
+askAudienceDiv.addEventListener('click', () => {
+  askAudience();
+})
+
+function handleAskAudience(data) {
+  console.log(data);
 };
