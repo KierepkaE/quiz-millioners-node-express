@@ -1,6 +1,6 @@
 # 
 
-- Basic quiz about programming. Based on programme `Who wants to be a millionaire`
+> Basic quiz about programming. Based on programme `Who wants to be a millionaire`
 
 #### How to use?
 
